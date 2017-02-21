@@ -1,0 +1,39 @@
+<div ng-class="::classColSpan">
+    <div class="form-group"
+         ng-class="{'has-error':formCtrl[inputName].$invalid && formCtrl[inputName].$touched}">
+
+        <div class="form-group">
+            <label>
+                <label class="control-label"
+                       ng-bind="label">
+                </label>
+                <i class="fa fa-asterisk text-danger"
+                   ng-if="ngRequired"></i>
+            </label>
+
+            <p class="input-group">
+                <input uib-datepicker-popup
+                       is-open="service.popup.aberto"
+                       datepicker-options="service.dateOptions"
+                       clear-text="Limpar"
+                       current-text="Hoje"
+                       close-text="Fechar"
+                       ng-model="ngModel"
+                       class="form-control"
+                       ng-required="ngRequired"
+                       type="date"
+                       name="{{::inputName}}"
+                />
+                <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="service.abrir()"><i
+                        class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+
+        <div ng-messages="formCtrl[inputName].$error"
+             ng-if="(formCtrl[inputName].$invalid && formCtrl[inputName].$touched)">
+            <div ng-messages-include="arquitetura/templates/ng-messages.html"></div>
+        </div>
+    </div>
+</div>

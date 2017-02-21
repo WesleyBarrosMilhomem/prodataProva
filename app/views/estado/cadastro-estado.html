@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>ESTADO</title>
+
+    <script src="cadastro-estado.controller.js"></script>
+
+</head>
+<body ng-app="pdProva">
+<div ng-controller="CadastroEstadoControle as vm">
+
+    <pd-super-crud titulo="Cadastro de Estado"
+                   service="vm.pdService">
+
+        <pd-crud-body>
+
+            <pd-auto-complete
+                    service="vm.pdService"
+                    label="Nome"
+                    lista="vm.pdService.provider"
+                    ng-model="vm.pdService.entidade.nome"
+                    ng-required="true"
+                    colspan="3">
+            </pd-auto-complete>
+
+            <pd-input-date
+                    service="vm.pdService"
+                    label="Data de Cadastro"
+                    ng-required="true"
+                    ng-model="vm.pdService.entidade.dataCadastro">
+            </pd-input-date>
+
+        </pd-crud-body>
+    </pd-super-crud>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PROVA</title>
+
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="node_modules/angular-toastr/dist/angular-toastr.css">
+    <link rel="stylesheet" href="node_modules/angular-ui-grid/ui-grid.css">
+    <link rel="stylesheet" href="arquitetura/directives/pd-auto-complete/pd-auto-complete.css">
+    <link rel="stylesheet" href="node_modules/angular-ui-select/select.css">
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-material/angular-material.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.js"></script>
+    <script src="node_modules/angular-messages/angular-messages.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
+    <script src="node_modules/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="node_modules/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="node_modules/angular-ui-grid/ui-grid.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <script src="node_modules/angular-ui-select/select.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+    <script src="app/config/pd-module.js"></script>
+    <script src="app/config/pd-rotas.js"></script>
+
+    <script src="app/controller/index.controller.js"></script>
+
+    <script src="arquitetura/service/pd-alert.service.js"></script>
+    <script src="arquitetura/service/pd-service.js"></script>
+    <script src="arquitetura/service/pd-storage.service.js"></script>
+    <script src="arquitetura/service/roteador.service.js"></script>
+    <script src="app/views/estado/estado.service.js"></script>
+    <script src="app/views/cidade/cidade.service.js"></script>
+    <script src="app/views/bairro/bairro.service.js"></script>
+
+    <script src="arquitetura/directives/pd-super-crud/pd-super-crud.directive.js"></script>
+    <script src="arquitetura/directives/pd-input-text/pd-input-text.directive.js"></script>
+    <script src="arquitetura/directives/pd-input-date/pd-input-date.directive.js"></script>
+    <script src="arquitetura/directives/pd-panel/pd-panel.directive.js"></script>
+    <script src="arquitetura/directives/pd-grid/pd-grid.directive.js"></script>
+    <script src="arquitetura/directives/pd-auto-complete/pd-auto-complete.directive.js"></script>
+    <script src="arquitetura/directives/pd-select/pd-select.directive.js"></script>
+
+</head>
+<body ng-app="pdProva" ng-controller="IndexControle as vm">
+
+<md-button ng-click="vm.toggle()" arial-label="Abrir menu">
+    <md-icon md-svg-icon="menu"></md-icon>
+</md-button>
+
+<md-sidenav flex="20" md-disable-backdrop="true"
+            md-component-id="left"
+            layout="column"
+            class="md-whiteframe-4dp">
+
+    <md-menu ng-repeat="menu in vm.menus">
+        <md-button aria-label="Menu" ng-click="vm.openMenu($mdOpenMenu,$event,$index)">
+            {{menu}}
+        </md-button>
+        <md-menu-content width="3">
+            <md-menu-item ng ng-repeat="item in vm.itens">
+                <md-button ng-click="vm.menuItemClick($index)" arial-label="Item menu">
+                    <div layout="row">
+                        <p flex>{{item}}</p>
+                    </div>
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+    <md-menu>
+        <md-button aria-label="Sair" ng-click="vm.sair()">
+            Sair
+        </md-button>
+        <md-menu-content>
+            <md-menu-item>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+</md-sidenav>
+
+<div class="container" ui-view></div>
+</body>
+</html>

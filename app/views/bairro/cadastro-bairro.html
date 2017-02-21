@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>BAIRRO</title>
+
+    <script src="cadastro-bairro.controller.js"></script>
+
+</head>
+<body ng-app="pdProva">
+<div ng-controller="CadastroBairroControle as vm">
+
+    <pd-super-crud titulo="Cadastro de Bairro"
+                   service="vm.pdService">
+
+        <pd-crud-body>
+
+
+            <pd-select label="Estado"
+                       service="vm.pdService"
+                       lista="vm.pdService.cidades"
+                       controller-lista="Cidade"
+                       entidade-pai="estado"
+                       ng-model="vm.pdService.entidade.estado.id"
+                       provider="vm.pdService.estados"
+                       ng-required="true"
+                       propriedadeValor="id"
+                       propriedadeDescricao="nome">
+            </pd-select>
+
+            <pd-select label="Cidade"
+                       service="vm.pdService"
+                       ng-model="vm.pdService.entidade.cidade.id"
+                       provider="vm.pdService.cidades"
+                       ng-required="true"
+                       propriedadeValor="id"
+                       propriedadeDescricao="nome">
+            </pd-select>
+
+
+            <pd-auto-complete
+                    service="vm.pdService"
+                    label="Nome"
+                    lista="vm.pdService.provider"
+                    ng-model="vm.pdService.entidade.nome"
+                    ng-required="true"
+                    colspan="3">
+            </pd-auto-complete>
+
+            <pd-input-date
+                    service="vm.pdService"
+                    label="Data de Cadastro"
+                    ng-required="true"
+                    ng-model="vm.pdService.entidade.dataCadastro">
+            </pd-input-date>
+
+
+        </pd-crud-body>
+    </pd-super-crud>
+</div>
+
+</body>
+</html>

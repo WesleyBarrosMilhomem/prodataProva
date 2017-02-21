@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Bairro</title>
+
+    <script src="pesquisa-Bairro.controller.js"></script>
+
+</head>
+
+<body ng-app="pdProva">
+
+<div ng-controller="PesquisaBairroControle as vm">
+
+    <pd-panel titulo="Pesquisa Bairro"
+              tipo="primary">
+
+        <pd-grid service="vm.pdService" exibe-editar="true" exibe-excluir="true"></pd-grid>
+
+    </pd-panel>
+
+</div>
+
+</body>
+</html>

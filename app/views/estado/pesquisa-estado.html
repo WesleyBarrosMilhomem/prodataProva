@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>ESTADO</title>
+
+    <script src="pesquisa-estado.controller.js"></script>
+
+</head>
+
+<body ng-app="pdProva">
+
+<div ng-controller="PesquisaEstadoControle as vm">
+
+    <pd-panel titulo="Pesquisa Estado"
+              tipo="primary">
+
+        <pd-grid service="vm.pdService" exibe-editar="true" exibe-excluir="true"></pd-grid>
+
+    </pd-panel>
+
+</div>
+
+</body>
+</html>
