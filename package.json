@@ -21,6 +21,6 @@
     "font-awesome": "^4.7.0",
     "jquery": "v3.1.1",
     "material-design-icons": "^3.0.1",
-    "oclazyload": "v1.0.9",
+    "oclazyload": "v1.0.9"
   }
 }
